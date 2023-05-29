@@ -1,0 +1,41 @@
+fileFormatVersion: 2
+guid: 4e453a7ab31da7645a65b35bc0e6144c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Money: {fileID: 11400000, guid: 387b1f34a19ff73498c0fde40e8a4588, type: 2}
+  - UICoins: {instanceID: 0}
+  - Pet: {instanceID: 0}
+  - Ball: {instanceID: 0}
+  - Ball1: {instanceID: 0}
+  - Ball2: {instanceID: 0}
+  - Ball3: {instanceID: 0}
+  - Ball4: {instanceID: 0}
+  - Ball5: {instanceID: 0}
+  - Ball6: {instanceID: 0}
+  - Circle: {instanceID: 0}
+  - Circle1: {instanceID: 0}
+  - Circle2: {instanceID: 0}
+  - Circle3: {instanceID: 0}
+  - Circle4: {instanceID: 0}
+  - Circle5: {instanceID: 0}
+  - Circle6: {instanceID: 0}
+  - Arch: {instanceID: 0}
+  - Wheel: {instanceID: 0}
+  - Pipe: {instanceID: 0}
+  - Home: {instanceID: 0}
+  - Watchtower: {instanceID: 0}
+  - Maze: {instanceID: 0}
+  - Wall1: {instanceID: 0}
+  - Wall2: {instanceID: 0}
+  - Wall3: {instanceID: 0}
+  - Wall4: {instanceID: 0}
+  - Wall5: {instanceID: 0}
+  - Wall6: {instanceID: 0}
+  - Wall7: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

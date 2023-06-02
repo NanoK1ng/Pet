@@ -97,12 +97,14 @@ public class Game : MonoBehaviour
         string sceneName = currentScene.name;
         SetActiveObjectOnScene(sceneName);
 
+        StartCoroutine(SaveDatas());
+
 
     }
     private void FixedUpdate()
     {
         UpdateGUI();
-        Save();
+        
     }
 
     private void UpdateGUI()
@@ -110,6 +112,15 @@ public class Game : MonoBehaviour
         UICoins.text = Money.Coins.ToString();
     }
 
+    IEnumerator SaveDatas()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(10);
+            Save();
+
+        }
+    }
     private void Load()
     {
         var data = SaveManager.Load<SaveData.GameData>(_saveKey);
@@ -139,7 +150,7 @@ public class Game : MonoBehaviour
 
         Ball6.transform.position = data.Ball6Transform.position;
         Ball6.transform.rotation = data.Ball6Transform.rotation;
-            
+
         Pipe.transform.position = data.PipeTransform.position;
         Pipe.transform.rotation = data.PipeTransform.rotation;
 
@@ -420,7 +431,7 @@ public class Game : MonoBehaviour
             Pipe.SetActive(!PurchPipe);
 
             Wheel.SetActive(!PurchWheel);
-            
+
             Home.SetActive(!PurchHome);
 
             Watchtower.SetActive(!PurchWatchtower);

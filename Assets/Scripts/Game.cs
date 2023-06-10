@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+
 public class Game : MonoBehaviour
 {
     public static Game Instance;
 
-    [Header("Scriptable Object")]
+    [Header("Scriptable Objects")]
     public Money Money;
 
     [Header("Set in Inspector")]
@@ -77,7 +78,11 @@ public class Game : MonoBehaviour
     public bool PurchWall6;
     public bool PurchWall7;
 
+    private bool _firstLaunchGame = true;
+
     private const string _saveKey = "mainSave";
+
+
 
     private void Awake()
     {
@@ -87,6 +92,15 @@ public class Game : MonoBehaviour
             Destroy(this);
 
         Load();
+        Money.LoadDataFromFile();
+        Debug.Log("LoadData");
+
+        if (_firstLaunchGame)
+        {
+            Money.Coins = 0;
+            _firstLaunchGame = false;
+        }
+
 
     }
 
@@ -99,13 +113,14 @@ public class Game : MonoBehaviour
 
         StartCoroutine(SaveDatas());
 
-
     }
     private void FixedUpdate()
     {
         UpdateGUI();
-        
+
     }
+
+
 
     private void UpdateGUI()
     {
@@ -118,14 +133,15 @@ public class Game : MonoBehaviour
         {
             yield return new WaitForSeconds(10);
             Save();
-
+            Money.SaveToFile();
+            Debug.Log("SaveData");
         }
     }
     private void Load()
     {
         var data = SaveManager.Load<SaveData.GameData>(_saveKey);
 
-        Money.Coins = data.Coins.Coins;
+        //Money.Coins = data.Coins.Coins;
 
         Pet.transform.position = data.PetTransform.position;
         Pet.transform.rotation = data.PetTransform.rotation;
@@ -211,17 +227,18 @@ public class Game : MonoBehaviour
 
     }
 
-    private void Save()
+    public void Save()
     {
         PurchasedObjects.Instance.UpdatePurchasedDict();
         SaveManager.Save(_saveKey, GetSaveSnapshot());
+
     }
 
     private SaveData.GameData GetSaveSnapshot()
     {
         var data = new SaveData.GameData()
         {
-            Coins = Money,
+            //Coins = Money,
 
             PetTransform = new SaveData.TransformData()
             {

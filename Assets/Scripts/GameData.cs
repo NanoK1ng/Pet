@@ -8,7 +8,7 @@ namespace SaveData
     [System.Serializable]
     public class GameData
     {
-        public Money Coins;
+        //public Money Coins;
 
         public TransformData PetTransform;
         public TransformData BallTransform;
@@ -77,6 +77,13 @@ namespace SaveData
 
         public GameData()
         {
+            PetTransform = new TransformData()
+            {
+                position = new Vector3(0f, 0.1f, 0f),
+                rotation = Quaternion.identity,
+                scale = Vector3.one
+            };
+
             CircleTransform = new TransformData()
             {
                 position = new Vector3(0f, 0f, -3f),
@@ -121,6 +128,12 @@ namespace SaveData
                 scale = new Vector3(1.25f, 1, 1)
             };
 
+            BallTransform = new TransformData()
+            {
+                position = new Vector3(-1f, 1f, -1f),
+                rotation = Quaternion.identity,
+                scale = Vector3.one
+            };
             Ball1Transform = new TransformData()
             {
                 position = new Vector3(1f, 1f, -1f),

@@ -23,6 +23,9 @@ public class BuyObject : MonoBehaviour
             Game.Instance.Money.Coins -= Price;
             gameObject.SetActive(false);
             ObjectBuyed(Obj);
+            Game.Instance.Save();
+            Game.Instance.Money.SaveToFile();
+
 
         }
     }
